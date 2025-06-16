@@ -4,10 +4,8 @@
 
 #include "interpret.h"
 #include "stack.h"
-#include "list.h"
 
 stack *s = NULL;
-list *l = NULL;
 
 void s_init(){
     s = new_stack(100);
@@ -45,12 +43,6 @@ void interpret (const char *source) {
         stack_push(s, arg1*arg2);
     } else if (strcmp(op, "print") == 0){
         printf("%d\n", stack_pop(s));
-    } else if (strcmp(op, "pop") == 0){
-        int arg1 = stack_pop(s);
-        if (list_exist(l,arg)){
-            list_set(l,arg,arg1);
-        }else {
-            list_append(l,arg,arg1);
         }
     }
 
